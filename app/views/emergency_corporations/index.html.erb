@@ -1,0 +1,42 @@
+<%- model_class = EmergencyCorporation -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:phone) %></th>
+      <th><%= model_class.human_attribute_name(:location) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @emergency_corporations.each do |emergency_corporation| %>
+      <tr>
+        <td><%= link_to emergency_corporation.id, emergency_corporation_path(emergency_corporation) %></td>
+        <td><%= emergency_corporation.name %></td>
+        <td><%= emergency_corporation.description %></td>
+        <td><%= emergency_corporation.phone %></td>
+        <td><%= emergency_corporation.location %></td>
+        <td><%=l emergency_corporation.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_emergency_corporation_path(emergency_corporation), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      emergency_corporation_path(emergency_corporation),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_emergency_corporation_path,
+            :class => 'btn btn-primary' %>

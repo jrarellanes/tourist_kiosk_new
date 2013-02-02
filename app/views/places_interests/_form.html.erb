@@ -1,0 +1,50 @@
+<%= form_for @places_interest, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ubication, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :ubication, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :horary, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :horary, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :popularity, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :popularity, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :idClasification, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :idClasification, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :urlImage, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :urlImage, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                places_interests_path, :class => 'btn' %>
+  </div>
+<% end %>

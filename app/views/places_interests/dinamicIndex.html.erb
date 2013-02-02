@@ -1,0 +1,20 @@
+
+<h1><center>Principales sitios Turisticos en Chihuahua</center></h1>
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+  	
+  	<% @places_interests.each do |places_interest| %>
+     
+    <div class="item"><a href="<%=places_interest_path(places_interest)%>"><img src="<%=places_interest.urlImage%>"  height="700" width="800" alt/> </a>
+    <div class="carousel-caption">
+    <h4><%=places_interest.name%></h4>
+    </div>
+    </div>
+      <% end %>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+

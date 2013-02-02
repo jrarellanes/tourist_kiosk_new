@@ -1,0 +1,32 @@
+<%= form_for @user_visit, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :iduser, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :iduser, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :idsite, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :idsite, :class => 'number_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dateVisit, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :dateVisit, :class => 'date_select' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :ratig, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.number_field :ratig, :class => 'number_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                user_visits_path, :class => 'btn' %>
+  </div>
+<% end %>

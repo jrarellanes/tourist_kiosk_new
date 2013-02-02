@@ -1,0 +1,42 @@
+<%- model_class = UserVisit -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:iduser) %></th>
+      <th><%= model_class.human_attribute_name(:idsite) %></th>
+      <th><%= model_class.human_attribute_name(:dateVisit) %></th>
+      <th><%= model_class.human_attribute_name(:ratig) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_visits.each do |user_visit| %>
+      <tr>
+        <td><%= link_to user_visit.id, user_visit_path(user_visit) %></td>
+        <td><%= user_visit.iduser %></td>
+        <td><%= user_visit.idsite %></td>
+        <td><%= user_visit.dateVisit %></td>
+        <td><%= user_visit.ratig %></td>
+        <td><%=l user_visit.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_user_visit_path(user_visit), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      user_visit_path(user_visit),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_user_visit_path,
+            :class => 'btn btn-primary' %>
