@@ -6,18 +6,26 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @places_interest.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:ubication) %>:</strong></dt>
-  <dd><%= @places_interest.ubication %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @places_interest.address %></dd>
   <dt><strong><%= model_class.human_attribute_name(:horary) %>:</strong></dt>
   <dd><%= @places_interest.horary %></dd>
   <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
   <dd><%= @places_interest.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dd><%= @places_interest.latitude %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dd><%= @places_interest.longitude %></dd>
   <dt><strong><%= model_class.human_attribute_name(:popularity) %>:</strong></dt>
   <dd><%= @places_interest.popularity %></dd>
   <dt><strong><%= model_class.human_attribute_name(:idClasification) %>:</strong></dt>
   <dd><%= @places_interest.idClasification %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:urlImage) %>:</strong></dt>
+  <dd><strong><%= model_class.human_attribute_name(:urlImage) %>:</strong></dd>
   <dd><img src="<%=@places_interest.urlImage %>"/></dd>
+  <dd><strong>Mapa:</strong></dd>
+  <dd><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@places_interest.latitude}%2C#{@places_interest.longitude}" %></dd>
+
+
 </dl>
 
 <div class="form-actions">

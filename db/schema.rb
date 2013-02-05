@@ -39,12 +39,14 @@ ActiveRecord::Schema.define(:version => 20121126005912) do
 
   create_table "places_interests", :force => true do |t|
     t.string   "name"
-    t.string   "ubication"
+    t.string   "address"
     t.string   "horary"
     t.text     "description"
     t.string   "popularity"
     t.string   "idClasification"
     t.string   "urlImage"
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -55,13 +57,6 @@ ActiveRecord::Schema.define(:version => 20121126005912) do
     t.date     "dateRegister"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
-  end
-
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.decimal  "price"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "user_visits", :force => true do |t|
