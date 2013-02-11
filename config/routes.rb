@@ -1,4 +1,6 @@
 Bootstrap::Application.routes.draw do
+  resources :users
+
   resources :clasifications
 
   resources :emergency_corporations
@@ -12,6 +14,10 @@ Bootstrap::Application.routes.draw do
   resources :places_interests
   root :to => 'places_interests#index'
   get 'dinamic' => 'places_interests#dinamicIndex'
+  
+  resources :users, :user_sessions
+  match 'login' => 'user_sessions#new', :as => :login
+  match 'logout' => 'user_sessions#destroy', :as => :logout
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

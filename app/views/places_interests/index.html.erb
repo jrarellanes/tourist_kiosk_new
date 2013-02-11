@@ -25,6 +25,7 @@
         <td><image src='<%=places_interest.urlImage%>'>
         </td>
         <td><%= link_to "Ver Detalles", places_interest_path(places_interest) %></td>
+        <% if current_user %>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_places_interest_path(places_interest), :class => 'btn btn-mini' %>
@@ -33,7 +34,9 @@
                       :method => :delete,
                       :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-mini btn-danger' %>
+                      
         </td>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

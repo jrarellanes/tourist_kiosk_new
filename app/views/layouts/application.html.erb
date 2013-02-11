@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -25,7 +26,14 @@
           <li><%= link_to "Busqueda aleatoria",{},{:style=>'color:#FFFFFF'} %></li>
           <li><%= link_to "Mas visitado",{},{:style=>'color:#FFFFFF'} %></li>
           <li><%= link_to "Contactos de Emergencia",{},{:style=>'color:#FFFFFF'} %></li>
-          <li><%= link_to "Restaurantes y Hoteles",{},{:style=>'color:#FFFFFF'} %></li>
+          <li><%= link_to "Restaurantes y Hoteles",{} ,{:style=>'color:#FFFFFF'}%></li>
+             <% if current_user %>
+        <%= link_to "Editar Cuenta", edit_user_path(current_user.id),{:style=>'color:#FFFFFF'}%>
+        <%= link_to "Logout", :logout,{:style=>'color:#FFFFFF'}%>
+        <% else %>
+        <%= link_to "Registrate", new_user_path,{:style=>'color:#FFFFFF'}%> | 
+        <%= link_to "Login", :login,{:style=>'color:#FFFFFF'} %>
+        <% end %>
         </ul>
       </div>
     </div>
