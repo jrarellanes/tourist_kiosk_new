@@ -22,7 +22,7 @@
   <dd><%= @places_interest.idClasification %></dd>
   <dd><strong><%= model_class.human_attribute_name(:urlImage) %>:</strong></dd>
   <dd><img src="<%=@places_interest.urlImage %>"/></dd>
-  <dd><strong>Mapa:</strong></dd>
+  <dd><strong>Mapa</strong></dd>
   <dd><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@places_interest.latitude}%2C#{@places_interest.longitude}" %></dd>
 
 
