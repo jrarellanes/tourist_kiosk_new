@@ -27,11 +27,12 @@
 
 
 </dl>
-
+	
 <div class="form-actions">
+	
   <%= link_to t('.back', :default => t("helpers.links.back")),
               places_interests_path, :class => 'btn'  %>
-  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+  <%= link_to 'Me gusta',
               edit_places_interest_path(@places_interest), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               places_interest_path(@places_interest),

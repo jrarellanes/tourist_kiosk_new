@@ -18,6 +18,7 @@
  * ========================================================== */
 
 
+
 !function ($) {
 
   "use strict"; // jshint ;_;
@@ -34,6 +35,8 @@
       .on('mouseenter', $.proxy(this.pause, this))
       .on('mouseleave', $.proxy(this.cycle, this))
   }
+  
+
 
   Carousel.prototype = {
 

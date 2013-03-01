@@ -19,7 +19,7 @@ class PlacesInterestsController < ApplicationController
   # GET /places_interests/1.json
   def show
     @places_interest = PlacesInterest.find(params[:id])
-
+    @id = @places_interest
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @places_interest }
@@ -40,6 +40,14 @@ class PlacesInterestsController < ApplicationController
   # GET /places_interests/1/edit
   def edit
     @places_interest = PlacesInterest.find(params[:id])
+    if current_user
+        @user = current_user.id
+        @user_visit = UserVisit.new
+        @user_visit.iduser = @user
+        @user_visit.idsite = @places_interest.id   
+        @user_visit.save
+        redirect_to register_visit_path
+      end 
   end
 
   # POST /places_interests
@@ -84,5 +92,12 @@ class PlacesInterestsController < ApplicationController
       format.html { redirect_to places_interests_url }
       format.json { head :no_content }
     end
+  end
+  
+    def registerVisit
+         
+      
+     
+      
   end
 end

@@ -10,6 +10,8 @@
   <%= csrf_meta_tags %>
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      	
+
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
@@ -28,6 +30,7 @@
           <li><%= link_to "Contactos de Emergencia",{},{:style=>'color:#FFFFFF'} %></li>
           <li><%= link_to "Restaurantes y Hoteles",{} ,{:style=>'color:#FFFFFF'}%></li>
              <% if current_user %>
+				<%=@user%>             
         <%= link_to "Editar Cuenta", edit_user_path(current_user.id),{:style=>'color:#FFFFFF'}%>
         <%= link_to "Logout", :logout,{:style=>'color:#FFFFFF'}%>
         <% else %>
@@ -43,6 +46,7 @@
   <div class="row">
     <div class="span9"><%= yield %></div>
     <div class="span3">
+
     	    <div id="myCarousel" class="carousel slide">  
       <!-- Carousel items -->  
       <h2>Recomendaciones</h2>
@@ -60,8 +64,18 @@
     	 </div>
   </div>
 </div>
+
+<script>
+$('.carousel').carousel({
+   interval: 2000
+   })
+</script>
+
     <script src="app/assets/javascripts/jquery.js"></script>  
     <script src="app/assets/javascripts/bootstrap-carousel.js"></script>  
+   
+
+</script>
     
 </body>
 </html>

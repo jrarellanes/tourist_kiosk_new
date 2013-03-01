@@ -14,8 +14,13 @@ class UserSessionsController < ApplicationController
   # POST /user_sessions
   # POST /user_sessions.xml
   def create
+    
+    
     @user_session = UserSession.new(params[:user_session])
- 
+    
+    current_user = UserSession.find
+    @id = current_user && current_user.record.id
+    puts "*******************************#{current_user}**********************************"
     respond_to do |format|
       if @user_session.save
         format.html { redirect_to(:root, :notice => 'Login Successful') }
