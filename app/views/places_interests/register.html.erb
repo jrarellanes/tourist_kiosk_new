@@ -1,0 +1,9 @@
+
+ <div class="page-header">
+  La visita ha sido guardada en tu perfil.
+</div>
+
+
+<% @user.places_interests.each do |places_interest| %>
+ <td><h2><%= places_interest.name %></h2></td>
+<% end %>

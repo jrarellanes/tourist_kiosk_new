@@ -1,8 +1,8 @@
 class CreateUserVisits < ActiveRecord::Migration
   def change
     create_table :user_visits do |t|
-      t.integer :iduser
-      t.integer :idsite
+      t.references :user
+      t.references :places_interest
       t.date :dateVisit
       t.integer :ratig
 

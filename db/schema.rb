@@ -65,12 +65,12 @@ ActiveRecord::Schema.define(:version => 20130210232515) do
   end
 
   create_table "user_visits", :force => true do |t|
-    t.integer  "iduser"
-    t.integer  "idsite"
+    t.integer  "user_id"
+    t.integer  "places_interest_id"
     t.date     "dateVisit"
     t.integer  "ratig"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|

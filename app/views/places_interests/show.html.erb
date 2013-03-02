@@ -33,6 +33,8 @@
   <%= link_to t('.back', :default => t("helpers.links.back")),
               places_interests_path, :class => 'btn'  %>
   <%= link_to 'Me gusta',
+              register_path(@places_interest), :method => 'register',:class => 'btn' %>
+  <%= link_to 'Editar',
               edit_places_interest_path(@places_interest), :class => 'btn' %>
   <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
               places_interest_path(@places_interest),

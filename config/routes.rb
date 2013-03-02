@@ -19,7 +19,7 @@ Bootstrap::Application.routes.draw do
   match 'login' => 'user_sessions#new', :as => :login
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
-  get 'register_visit' => 'places_interests#registerVisit'
+  match 'places_interests/register/:id' => 'places_interests#register', :as => :register
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
