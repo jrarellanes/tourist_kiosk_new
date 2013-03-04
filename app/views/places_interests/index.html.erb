@@ -20,12 +20,14 @@
     </tr>
   </thead>
   <tbody>
+  	
     <% @places_interests.each do |places_interest| %>
       <tr>
         
         <td><h2><%= places_interest.name %></h2></td>
         <td><image src='<%=places_interest.urlImage%>'>
         </td>
+   
         <td><%= link_to "Ver Detalles", places_interest_path(places_interest) %></td>
         <% if current_user %>
         <td>

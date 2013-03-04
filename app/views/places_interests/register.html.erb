@@ -6,4 +6,13 @@
 
 <% @user.places_interests.each do |places_interest| %>
  <td><h2><%= places_interest.name %></h2></td>
+ 
 <% end %>
+
+<%= form_for @user_visit, :html => { :class => 'form-horizontal' } do |f| %>
+<%= f.select, :ratig, (0..5).to_a, :class => 'select' %>
+<% end %>
+
+
+
+
