@@ -1,7 +1,13 @@
 
  <div class="page-header">
-  La visita ha sido guardada en tu perfil.
+  Califica tu visita a <%=@places_interest.name%>.
 </div>
+<%= form_tag( "/user_visits/" + @user_visit.id.to_s + "/edit", :method => "get") do %>
+	       
+	    <%=select("post",nil, [1,2,3,4,5], {:prompt => 'Select Person'})%>
+	        
+	  <%= submit_tag("Continuar", :class => 'btn btn-primary')%>
+    <%end%>
 
 
 <% @user.places_interests.each do |places_interest| %>
@@ -9,9 +15,7 @@
  
 <% end %>
 
-<%= form_for @user_visit, :html => { :class => 'form-horizontal' } do |f| %>
-<%= f.select, :ratig, (0..5).to_a, :class => 'select' %>
-<% end %>
+
 
 
 
