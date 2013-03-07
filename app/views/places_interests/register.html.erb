@@ -1,18 +1,15 @@
 
- <div class="page-header">
+<div class="page-header"><h2>
   Califica tu visita a <%=@places_interest.name%>.
-</div>
 <%= form_tag( "/user_visits/" + @user_visit.id.to_s + "/edit", :method => "get") do %>
-	       
-	    <%=select("post",nil, [1,2,3,4,5], {:prompt => 'Select Person'})%>
-	        
-	  <%= submit_tag("Continuar", :class => 'btn btn-primary')%>
-    <%end%>
+  <%=select("post",nil, [1,2,3,4,5], {:prompt => 'Seleccione calificacion'})%> 
+  <%= submit_tag("Continuar", :class => 'btn btn-primary')%>
+<%end%>
+</h2></div>
 
 
 <% @user.places_interests.each do |places_interest| %>
- <td><h2><%= places_interest.name %></h2></td>
- 
+ <td><h3><%= places_interest.name %></h3></td>
 <% end %>
 
 
