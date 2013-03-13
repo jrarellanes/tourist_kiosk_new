@@ -20,7 +20,7 @@
   </thead>
   <tbody>
   	
-    <% @user.user_visits.each do |places_interest| %>
+    <% @user.user_visits.order('ratig desc').each do |places_interest| %>
       <tr>
         
         <td><h3><%=  PlacesInterest.find(places_interest.places_interest_id).name%></h2></td>
