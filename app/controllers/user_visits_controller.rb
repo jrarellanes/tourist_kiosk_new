@@ -36,7 +36,7 @@ class UserVisitsController < ApplicationController
   def edit
     @user_visit = UserVisit.find(params[:id])
     @user_visit.ratig = params[:post].first
-    puts "**********************************************#{params[:post]}*******************************"
+    id=@user_visit.user_id
     @user_visit.save
     redirect_to places_interests_path
   end
