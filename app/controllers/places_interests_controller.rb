@@ -98,7 +98,7 @@ class PlacesInterestsController < ApplicationController
   end
   
   def recommended_places
-    @recommended = UserVisit.where(:ratig => 5) 
+    @recommended = UserVisit.where(:ratig => 5).group('places_interest_id') 
   end
 
 end
