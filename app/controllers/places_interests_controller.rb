@@ -91,7 +91,8 @@ class PlacesInterestsController < ApplicationController
         @user = current_user
         @user_visit = UserVisit.new
         @user_visit.user_id = @user.id
-        @user_visit.places_interest_id= @places_interest.id
+        @user_visit.places_interest_id= @places_interest.id  
+        @user_visit.dateVisit = Date.today 
         @user_visit.save
       end     
   end

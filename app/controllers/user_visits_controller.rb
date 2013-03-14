@@ -35,6 +35,10 @@ class UserVisitsController < ApplicationController
   # GET /user_visits/1/edit
   def edit
     @user_visit = UserVisit.find(params[:id])
+    @user_visit.ratig = params[:post].first
+    id=@user_visit.user_id
+    @user_visit.save
+    redirect_to places_interests_path
   end
 
   # POST /user_visits

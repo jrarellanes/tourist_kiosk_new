@@ -1,18 +1,38 @@
+<div class="page-header"><h2>
+  Califica tu visita a <%=@places_interest.name%>.
+<%= form_tag( "/user_visits/" + @user_visit.id.to_s + "/edit", :method => "get") do %>
+  <%=select("post",nil, [1,2,3,4,5], {:prompt => 'Seleccione calificacion'})%> 
+  <%= submit_tag("Continuar", :class => 'btn btn-primary')%>
+<%end%>
+</h2></div>
 
- <div class="page-header">
-  Evalua tu visita a <%=@places_interest.name%>.
-</div>
 
-<%= form_for @user_visit, :html => { :class => 'form-horizontal' } do |f| %>
-<%= f.select :ratig, [1,2,3,4,5], :prompt => 'Seleccione' %>
- <%= f.submit nil, :class => 'btn btn-primary' %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+    	
+      <th>Sitio Visitado</th>      
+    	  <th>Calificación</th>
+       <th>Fecha de Visita</th>
+    
+    </tr>
+  </thead>
+  <tbody>
+  	
+    <% @user.user_visits.order('ratig desc').each do |places_interest| %>
+      <tr>
+        
+        <td><h3><%=  PlacesInterest.find(places_interest.places_interest_id).name%></h2></td>
+        <td><h3><%=places_interest.ratig%></h3>
+        </td>
+        <td><h3><%=places_interest.dateVisit%></h3>
+        </td>
+   
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<% @user.places_interests.each do |places_interest| %>
- <td><h2><%= places_interest.name %></h2></td>
- 
-<% end %>
-
-<% end %>
 
 
 
