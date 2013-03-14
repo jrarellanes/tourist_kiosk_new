@@ -30,7 +30,7 @@
           <li><%= link_to "Contactos de Emergencia",{},{:style=>'color:#FFFFFF'} %></li>
           <li><%= link_to "Restaurantes y Hoteles",{} ,{:style=>'color:#FFFFFF'}%></li>
              <% if current_user %>
-				<%=@user%>             
+				<%=current_user.username%>             
         <%= link_to "Editar Cuenta", edit_user_path(current_user.id),{:style=>'color:#FFFFFF'}%>
         <%= link_to "Logout", :logout,{:style=>'color:#FFFFFF'}%>
         <% else %>

@@ -91,8 +91,13 @@ class PlacesInterestsController < ApplicationController
         @user = current_user
         @user_visit = UserVisit.new
         @user_visit.user_id = @user.id
-        @user_visit.places_interest_id= @places_interest.id   
+        @user_visit.places_interest_id= @places_interest.id
         @user_visit.save
       end     
   end
+  
+  def recommended_places
+    @recommended = UserVisit.where(:ratig => 5) 
+  end
+
 end
