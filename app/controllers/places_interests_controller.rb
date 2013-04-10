@@ -96,4 +96,9 @@ class PlacesInterestsController < ApplicationController
         @user_visit.save
       end     
   end
+  
+  def recommended_places
+    @recommended = UserVisit.where(:ratig => 5).group('places_interest_id') 
+  end
+
 end

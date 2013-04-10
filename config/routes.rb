@@ -22,6 +22,8 @@ Bootstrap::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
   match 'places_interests/register/:id' => 'places_interests#register', :as => :register
+  
+  get 'recommended' => 'places_interests#recommended_places'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

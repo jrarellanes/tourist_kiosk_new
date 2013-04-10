@@ -1,0 +1,23 @@
+  <div class="page-header">
+  <h1><center>Recomendados por los demas</center></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id Sitio</th>
+     <th>Nombre</th>
+      
+      <th> Acciones</th>
+    </tr>
+  </thead>
+  	
+    <% @recommended.each do |recommended| %>
+      <tr>
+       
+        <td><%= PlacesInterest.find(recommended.places_interest_id).name%> </td>
+   
+      <td><%= PlacesInterest.find(recommended.places_interest_id).description%> </td>
+	<%end%>
+	</tr>
+	</table>
+</div>

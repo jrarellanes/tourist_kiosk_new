@@ -30,7 +30,7 @@
           <li><%= link_to "Contactos de Emergencia",{},{:style=>'color:#FFFFFF'} %></li>
           <li><%= link_to "Restaurantes y Hoteles",{} ,{:style=>'color:#FFFFFF'}%></li>
              <% if current_user %>
-				<%=@user%>             
+				<%=current_user.username%>             
         <%= link_to "Editar Cuenta", edit_user_path(current_user.id),{:style=>'color:#FFFFFF'}%>
         <%= link_to "Logout", :logout,{:style=>'color:#FFFFFF'}%>
         <% else %>
@@ -46,35 +46,35 @@
   <div class="row">
     <div class="span9"><%= yield %></div>
     <div class="span3">
+		  <h4><center>Los mas Recomendados</center></h4>
 
-    	    <div id="myCarousel" class="carousel slide">  
-      <!-- Carousel items -->  
-      <h2>Recomendaciones</h2>
-      <div class="carousel-inner">  
-        <div class="active item"><h3>Cascada de baseasachi</h3><p>Ubicada a unos cuantos kilómetros de Las barrancas del cobre, es un salto de agua de una altura de casi 250 metros, siendo así la cascada mas alta de México, la cascada es conocida por tener a su alrededor una hermosa muestra de flora y fauna, podemos encontrar Venados, pumas, mapaches y algunos reptiles y aves como Camaleones, Víboras de Cascabel, Águilas y Halcones.</p><img src="http://www.motelcascadainn.com/imagen/cascada-basaseachi.jpg" width="300" height="99" /></div>  
-        <div class="item"><h3>Teleferico Barrancas del Cobre</h3><p>El Teleférico ubicado en el Parque Ecoturístico Barrancas del Cobre cuenta con un primer tramo de 2,750 metros en el que circularan dos cabinas, una de cada lado con capacidad para 60 pasajeros cada una lo que permitirá a un promedio de 500 personas transportarse por hora.</p><img src="http://www.edy.com.mx/wp-content/uploads/teleferico_barrancas_del_cobre.jpg" width="500" height="99" /></div>  
-        <div class="item"><h3>Paquime</h3><p>Paquimé es una zona arqueológica localizada aproximadamente a medio kilómetro del poblado de Casas Grandes, Chihuahua. Esta zona arqueológica fue nombrada Patrimonio de la Humanidad por la Unesco en 1998.  Los investigadores calculan que la población probablemente llegó a tener unos 3500 habitantes, pero se desconocen su filiación lingüística y étnica. </p><img src="http://2.bp.blogspot.com/-bcQjcFpc6No/T49UfqDw9LI/AAAAAAAAAQ0/YpWtMjO5wx8/s1600/paquime+%285%29.jpg" width="500" height="99" /></div>  
-        <div class="item"><h3>Grutas de Nombre de Dios</h3><p>Las Grutas Nombre de de Dios, se encuentran a solo 15 minutos del centro histórico de la ciudad, en la dirección a la cordillera que se encuentra en el oriente de la ciudad en la vialidad Sacramento y Monte Alban. Estos cerros guardianes milenarios de las grutas, dan la impresión de ser impenetrables.</p><img src="http://www.chihuahua.gob.mx/atach2/turismoweb/uploads/2373306326_a09e43dfa3.jpg" width="500" height="99" /></div> 
-        <div class="item"><h3>Chepe</h3><p>Desde 1961, el Chepe (como se le conoce comúnmente a este tren tan singular), se interna entre los majestuosos paisajes de la Sierra Tarahumara. Zona donde se conjugan los rasgos más importantes de la historia y el folklore de la cultura Tarahumara, las Barrancas del Cobre, o Copper Canyon, como es conocido internacionalmente.</p><img src="http://www.ideasmx.com.mx/blog/wp-content/gallery/chihuahua/Ferrocarril.jpg" width="500" height="99" /></div> 
-      </div>  
-      <!-- Carousel nav -->  
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">‹</a>  
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">›</a>  
-    </div>  
-    	 </div>
+
+  	<%   @recommended = UserVisit.where(:ratig => 5).group('places_interest_id')%>
+  	
+    <div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+  	    
+  	<% @recommended.each do |recommended| %>
+     
+    <div class="item"><a href="<%=places_interest_path(recommended.places_interest_id)%>"><img src="<%=PlacesInterest.find(recommended.places_interest_id).urlImage%>"  height="700" width="800" alt/> </a>
+    <div class="carousel-caption">
+    <h4><center><%=PlacesInterest.find(recommended.places_interest_id).name%></center></h4>
+    </div>
+    </div>
+      <% end %>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+     
   </div>
 </div>
-
 <script>
 $('.carousel').carousel({
-   interval: 2000
-   })
-</script>
-
-    <script src="app/assets/javascripts/jquery.js"></script>  
-    <script src="app/assets/javascripts/bootstrap-carousel.js"></script>  
-   
-
+    interval: 2000
+    })
 </script>
     
 </body>
