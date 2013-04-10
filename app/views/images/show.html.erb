@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario:</b>
+  <%= current_user.username %>
+</p>
+
+ <a href="<%= @image.attach.url %> ">
+              <b> File attached </b></a>
+ <br/>
+
+  
+ <%= image_tag @image.pic.url(:medium) %>
+ <br/>
+
+ 
+
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', images_path %>

@@ -1,4 +1,6 @@
 Bootstrap::Application.routes.draw do
+  resources :images
+
   resources :users
 
   resources :clasifications
