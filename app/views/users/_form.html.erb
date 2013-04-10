@@ -19,6 +19,14 @@
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
+    <%if current_user %>
+    <% if (current_user.role == "Administrador") %>
+    <div class="field">
+      <%= f.label "rol de usuario" %><br />
+      <%= f.select :role, ['Administrador', 'Usuario','Sistemas'], :prompt => 'Seleccione' %>
+    </div>
+  <%end%>
+    <%end%>
   <div class="field">
     <%= f.label :password %><br />
     <%= f.password_field :password %>
@@ -27,6 +35,8 @@
       <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation %>
     </div>
+
+
   <div class="actions">
     <%= f.submit "Registrar"%>
   </div>
