@@ -40,10 +40,11 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    @image = Image.new(params[:image]
-
-    @
-
+    @image = Image.new(params[:image])
+    
+    current_user = UserSession.find
+    
+    @image.user_id = current_user && current_user.record.id
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }
