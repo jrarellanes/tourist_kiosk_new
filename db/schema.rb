@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(:version => 20130410024246) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "attach_file_name"
     t.string   "attach_content_type"
     t.integer  "attach_file_size"
@@ -93,8 +93,9 @@ ActiveRecord::Schema.define(:version => 20130410024246) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "role"
   end
 
 end
