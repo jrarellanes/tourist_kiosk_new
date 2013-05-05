@@ -16,7 +16,7 @@
       	
 
 </head>
-<body>
+<body class="lol">
 	<div class="navbar navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
@@ -68,31 +68,9 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="span9"><%= yield %></div>
-    <div class="span3">
-		  <h4><center>Los mas Recomendados</center></h4>
-  	<%@recommended = UserVisit.where(:ratig => 5).group('places_interest_id')%>
-
-      <div id="myCarousel" class="carousel slide">
-        <!-- Carousel items -->
-        <div class="carousel-inner">
-
-          <% @recommended.each do |recommended| %>
-
-              <div class="item"><a href="<%=places_interest_path(recommended.places_interest_id)%>"><img src="<%=PlacesInterest.find(recommended.places_interest_id).urlImage%>"  width="300" height="300"   alt/> </a>
-                <div class="carousel-caption">
-                  <center><h4><%=PlacesInterest.find(recommended.places_interest_id).name%></h4></center>
-                </div>
-              </div>
-          <% end %>
-        </div>
-        <!-- Carousel nav -->
-        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-      </div>
-
-
-    </div>
+    <div class="span11"><%= yield %></div>
+    
+    
   </div>
 </div>
 </body>

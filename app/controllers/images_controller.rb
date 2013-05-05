@@ -44,7 +44,7 @@ class ImagesController < ApplicationController
     
     current_user = UserSession.find
     
-    @image.user_id = current_user && current_user.record.id
+    @image.user_id = current_user && current_user.record.idda
     respond_to do |format|
       if @image.save
         format.html { redirect_to @image, notice: 'Image was successfully created.' }

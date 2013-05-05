@@ -1,8 +1,44 @@
 <%- model_class = PlacesInterest -%>
 <div class="page-header" xmlns="http://www.w3.org/1999/html">
   <h1><center>Ven!!, Visita Chihuahua!!</center></h1>
-</div>
+  <center><div>
+		  <h4><center></center></h4>
+  	<%@recommended = UserVisit.where(:ratig => 5).group('places_interest_id')%>
 
+      <div id="myCarousel" class="carousel slide">
+      	<ol class="carousel-indicators">
+<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+<li data-target="#myCarousel" data-slide-to="1"></li>
+<li data-target="#myCarousel" data-slide-to="2"></li>
+</ol>
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+
+          <% @recommended.each do |recommended| %>
+
+              <div class="item"><a href="<%=places_interest_path(recommended.places_interest_id)%>"><img src="<%=PlacesInterest.find(recommended.places_interest_id).urlImage%>"  width="500" height="500"   alt/> </a>
+                <div class="carousel-caption">
+                  <center><h4><%=PlacesInterest.find(recommended.places_interest_id).name%></h4></center>
+                </div>
+                
+              </div>
+          <% end %>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>
+
+
+    </div>
+    </center>
+</div>
+    <center>
+      <div>
+    	<%= link_to "Registra tu Sitio",new_places_interest_path,:class => 'btn btn-primary' %>
+        <%= link_to "Publica tus fotos",new_image_path, :class => 'btn btn-primary' %>
+      </div>
+    </center>
     <% @places_interests.each do |places_interest| %>
     <div align id="left" class="page-header">
         <h3 align ="left"><%= link_to places_interest.name,places_interest_path(places_interest) %></h3>
