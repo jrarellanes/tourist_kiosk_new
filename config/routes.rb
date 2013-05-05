@@ -24,6 +24,8 @@ Bootstrap::Application.routes.draw do
   match 'places_interests/register/:id' => 'places_interests#register', :as => :register
   
   get 'recommended' => 'places_interests#recommended_places'
+  get 'confirm_place/:id' => 'places_interests#confirm_place'
+  get  'index_unconfirm' => 'places_interests#index_unconfirm'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

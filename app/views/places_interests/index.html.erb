@@ -29,14 +29,8 @@
                 </br>
           </div>
     <% end %>
-
-
-<% if current_user %>
-        <% if (current_user.role == "Administrador") %>
-        <%= link_to "Nuevo",
+       <%= link_to "Registra un nuevo Sitio",
                     new_places_interest_path,
                     :class => 'btn btn-primary' %>
-    <% end %>
-<% end %>
 
 

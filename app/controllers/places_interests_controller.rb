@@ -7,7 +7,7 @@ class PlacesInterestsController < ApplicationController
   
   
   def index
-    @places_interests = PlacesInterest.all
+    @places_interests = PlacesInterest.where(:confirm => true)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,6 +45,11 @@ class PlacesInterestsController < ApplicationController
   # POST /places_interests.json
   def create
     @places_interest = PlacesInterest.new(params[:places_interest])
+    @places_interest. save
+    if(current_user.role == 'Administrador')
+      @places_interest.confirm = true
+      @places_interest. save
+    end
 
     respond_to do |format|
       if @places_interest.save
@@ -99,6 +104,17 @@ class PlacesInterestsController < ApplicationController
   
   def recommended_places
     @recommended = UserVisit.where(:ratig => 5).group('places_interest_id') 
+  end
+
+  def index_unconfirm
+    @places_interests = PlacesInterest.where(:confirm => false)
+  end
+
+  def confirm_place
+   @confirm= PlacesInterest.find(params[:id])
+   @confirm.confirm = true
+   @confirm.save
+    redirect_to "/places_interests"
   end
 
 end

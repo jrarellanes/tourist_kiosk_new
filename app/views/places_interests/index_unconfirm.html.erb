@@ -1,0 +1,29 @@
+<%if (current_user.role == 'Administrador')%>
+<%- model_class = PlacesInterest -%>
+<div class="page-header" xmlns="http://www.w3.org/1999/html">
+  <h3><center>Eventos pendientes de Autorizar</center></h3>
+</div>
+
+<% @places_interests.each do |places_interest| %>
+    <div align id="left" class="page-header">
+      <h3 align ="left"><%= link_to places_interest.name,places_interest_path(places_interest) %></h3>
+
+      <image height = "200" width = "200" align = "left" hspace = 30 src='<%=places_interest.urlImage%>'> </image>
+
+      <div align = "justify"> <font size ="3"><%=places_interest.description %></div>
+
+      <%= link_to "Editar",
+                  edit_places_interest_path(places_interest), :class => 'btn btn-primary' %>
+      <%= link_to "Eliminar",
+                  places_interest_path(places_interest),
+                  :method => :delete,
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-mini btn-danger' %>
+
+      <%= form_tag( "/confirm_place/#{places_interest.id}",:method => "get") do%>
+          <%= submit_tag("Publicar Evento", :class => 'btn btn-primary')%>
+      <%end%>
+<%end%>
+    <%else%>
+        Permiso Denegado
+<%end%>
