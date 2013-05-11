@@ -25,6 +25,7 @@ class ImagesController < ApplicationController
   # GET /images/new.json
   def new
     @image = Image.new
+    $place= params[:place]
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,10 +45,12 @@ class ImagesController < ApplicationController
     
     current_user = UserSession.find
     
-    @image.user_id = current_user && current_user.record.idda
+    @image.user_id = current_user && current_user.record.id
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        @image.places_interest_id = $place
+        @image.save
+        format.html { redirect_to "/places_interests/register/#{$place}", notice: 'Image was successfully created.' }
         format.json { render json: @image, status: :created, location: @image }
       else
         format.html { render action: "new" }

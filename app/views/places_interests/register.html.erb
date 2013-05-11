@@ -1,9 +1,17 @@
-<div class="page-header"><h2>
+<div class="page-header" xmlns="http://www.w3.org/1999/html"><h2>
+
+
   Califica tu visita a <%=@places_interest.name%>.
-<%= form_tag( "/user_visits/" + @user_visit.id.to_s + "/edit", :method => "get") do %>
+
+  </br>
+  <%= link_to "Compartir fotos de tu visita",new_image_path(:place => @places_interest.id), :class => 'btn btn-primary' %>
+  </br> </br>
+
+  <%= form_tag( "/user_visits/" + @user_visit.id.to_s + "/edit", :method => "get") do %>
   <%=select("post",nil, [1,2,3,4,5], {:prompt => 'Seleccione calificacion'})%> 
-  <%= submit_tag("Continuar", :class => 'btn btn-primary')%>
+  <%= submit_tag("Terminar Evaluación", :class => 'btn btn-primary')%>
 <%end%>
+
 </h2></div>
 
 
@@ -22,7 +30,7 @@
     <% @user.user_visits.order('ratig desc').each do |places_interest| %>
       <tr>
         
-        <td><h3><%=  PlacesInterest.find(places_interest.places_interest_id).name%></h2></td>
+        <td><h3><%=  PlacesInterest.find(places_interest.places_interest_id).name%></h3></td>
         <td><h3><%=places_interest.ratig%></h3>
         </td>
         <td><h3><%=places_interest.dateVisit%></h3>

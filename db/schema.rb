@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130410024246) do
+ActiveRecord::Schema.define(:version => 20130511151354) do
 
   create_table "clasifications", :force => true do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130410024246) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.integer  "places_interest_id"
   end
 
   create_table "places_interests", :force => true do |t|
@@ -61,8 +62,9 @@ ActiveRecord::Schema.define(:version => 20130410024246) do
     t.string   "urlImage"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "confirm",         :default => false
   end
 
   create_table "preferences", :force => true do |t|

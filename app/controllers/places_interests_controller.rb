@@ -2,10 +2,20 @@ class PlacesInterestsController < ApplicationController
   # GET /places_interests
   # GET /places_interests.json
   def dinamicIndex
-     @places_interests = PlacesInterest.all
+    # @places_interests = PlacesInterest.all
+     @places_interests =UserVisit.where(:ratig => 5).group('places_interest_id')
   end
-  
-  
+
+
+  def places_rh
+    @places_rh = PlacesInterest.where(:idClasification => 'rh')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @places_interests }
+    end
+  end
+
   def index
     @places_interests = PlacesInterest.where(:confirm => true)
 

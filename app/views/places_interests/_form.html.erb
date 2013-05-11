@@ -1,50 +1,45 @@
 <%= form_for @places_interest, :html => { :class => 'form-horizontal' } do |f| %>
   <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
+    <%= f.label "Nombre", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :address, :class => 'control-label' %>
+    <%= f.label "Dirección", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :address, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :horary, :class => 'control-label' %>
+    <%= f.label "Horario", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :horary, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
+    <%= f.label "Descripción", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_area :description, :class => 'text_area' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :popularity, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :popularity, :class => 'text_field' %>
-    </div>
-  </div>
-  <div class="control-group">
-    <%= f.label :idClasification, :class => 'control-label' %>
+    <%= f.label "Clasificación", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :idClasification, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :urlImage, :class => 'control-label' %>
+    <%= f.label "Imagen", :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :urlImage, :class => 'text_field' %>
     </div>
   </div>
 
   <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <%= f.submit "Registras sitio", :class => 'btn btn-primary' %>
+    <%= link_to "Cancelar",
                 places_interests_path, :class => 'btn' %>
   </div>
 <% end %>

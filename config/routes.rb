@@ -26,7 +26,7 @@ Bootstrap::Application.routes.draw do
   get 'recommended' => 'places_interests#recommended_places'
   get 'confirm_place/:id' => 'places_interests#confirm_place'
   get  'index_unconfirm' => 'places_interests#index_unconfirm'
-
+  get 'services' => 'places_interests#places_rh'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
