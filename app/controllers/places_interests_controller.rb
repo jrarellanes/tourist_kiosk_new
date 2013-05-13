@@ -29,6 +29,7 @@ class PlacesInterestsController < ApplicationController
   # GET /places_interests/1.json
   def show
     @places_interest = PlacesInterest.find(params[:id])
+    @images= Image.where(:places_interest_id => params[:id] ).order("created_at DESC")
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @places_interest }
