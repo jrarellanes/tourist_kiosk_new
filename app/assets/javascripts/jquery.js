@@ -11,6 +11,13 @@
  *
  * Date: 2013-2-4
  */
+
+$('#myCarousel').carousel({
+    interval: 2000
+    });
+
+    $('#myCarousel').carousel('cycle');
+    
 (function( window, undefined ) {
 
 // Can't do this because several apps including ASP.NET trace

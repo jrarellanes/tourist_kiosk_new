@@ -1,4 +1,6 @@
-<center>  <h3>Restaurantes y Hoteles</h3></center>
+<center>  <h3>Sitios de Interes</h3></center>
+
+<%= select("clasification_id", Clasification.all.collect {|p| [p.id] }, {:prompt => 'Selecciona una Categoria'}) %>
 
 <% @places_rh.each do |places_interest| %>
 

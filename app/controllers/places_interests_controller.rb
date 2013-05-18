@@ -8,7 +8,7 @@ class PlacesInterestsController < ApplicationController
 
 
   def places_rh
-    @places_rh = PlacesInterest.where(:idClasification => 'rh')
+    @places_rh = PlacesInterest.all
 
     respond_to do |format|
       format.html # index.html.erb

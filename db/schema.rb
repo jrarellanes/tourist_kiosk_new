@@ -39,16 +39,8 @@ ActiveRecord::Schema.define(:version => 20130511151354) do
 
   create_table "images", :force => true do |t|
     t.integer  "user_id"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.integer  "places_interest_id"
   end
 
@@ -58,13 +50,13 @@ ActiveRecord::Schema.define(:version => 20130511151354) do
     t.string   "horary"
     t.text     "description"
     t.string   "popularity"
-    t.string   "idClasification"
+    t.integer  "clasification_id"
     t.string   "urlImage"
     t.float    "latitude"
     t.float    "longitude"
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
-    t.boolean  "confirm",         :default => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.boolean  "confirm",          :default => false
   end
 
   create_table "preferences", :force => true do |t|
@@ -95,9 +87,17 @@ ActiveRecord::Schema.define(:version => 20130511151354) do
     t.string   "crypted_password"
     t.string   "password_salt"
     t.string   "persistence_token"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.string   "role"
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
   end
 
 end

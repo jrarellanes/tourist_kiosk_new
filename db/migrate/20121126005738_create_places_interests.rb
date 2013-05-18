@@ -6,7 +6,7 @@ class CreatePlacesInterests < ActiveRecord::Migration
       t.string :horary
       t.text :description
       t.string :popularity
-      t.string :idClasification
+      t.integer :clasification_id
       t.string :urlImage
       t.float :latitude
       t.float :longitude
