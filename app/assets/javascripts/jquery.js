@@ -12,11 +12,10 @@
  * Date: 2013-2-4
  */
 
-$('#myCarousel').carousel({
-    interval: 2000
-    });
-
-    $('#myCarousel').carousel('cycle');
+//$('#myCarousel').carousel({
+//  interval: 2000
+// });
+// $('#myCarousel').carousel('cycle');
     
 (function( window, undefined ) {
 

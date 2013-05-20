@@ -27,7 +27,7 @@
   <div class="control-group">
     <%= f.label "Clasificación", :class => 'control-label' %>
     <div class="controls">
-      <%= f.select("clasification_id", Clasification.all.collect {|p| [p.id] }, {:prompt => 'Selecciona una Categoria'}) %>
+      <%= f.select("clasification_id", Clasification.all.collect {|p| [p.name, p.id] }, {:prompt => 'Selecciona una Clasificacion'}) %>
     </div>
   </div>
   <div class="control-group">

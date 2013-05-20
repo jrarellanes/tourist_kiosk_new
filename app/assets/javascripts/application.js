@@ -15,9 +15,9 @@
 //= require twitter/bootstrap
 //= require_tree .
 
-    $('#myCarousel').carousel({
-    interval: 2000
-    });
+  //  $('#myCarousel').carousel({
+   // interval: 2000
+   // });
 
-    $('#myCarousel').carousel('cycle');
+   // $('#myCarousel').carousel('cycle');
 
