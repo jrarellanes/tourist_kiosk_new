@@ -1,0 +1,30 @@
+</br></br>
+<center><h4><%= @user.username %> continua descubriendo Chihuahua!! </br>Hasta hoy estos son los sitios que haz visitado</h4></center>
+</br></br>
+
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+
+    <th>Sitio Visitado</th>
+    <th>Calificación</th>
+    <th>Fecha de Visita</th>
+
+  </tr>
+  </thead>
+  <tbody>
+
+  <% @user.user_visits.order('ratig desc').each do |places_interest| %>
+      <tr>
+
+        <td><h3><%=  PlacesInterest.find(places_interest.places_interest_id).name%></h3></td>
+        <td><h3><%=places_interest.ratig%></h3>
+        </td>
+        <td><h3><%=places_interest.dateVisit%></h3>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+</table>

@@ -35,26 +35,25 @@ class UserVisitsController < ApplicationController
   # GET /user_visits/1/edit
   def edit
     @user_visit = UserVisit.find(params[:id])
-    @user_visit.ratig = params[:post].first
-    id=@user_visit.user_id
-    @user_visit.save
-    redirect_to places_interests_path
+
   end
 
   # POST /user_visits
   # POST /user_visits.json
   def create
-    @user_visit = UserVisit.new(params[:user_visit])
+    if current_user
+      @user = current_user
+      @user_visit = UserVisit.new
+      @user_visit.user_id = @user.id
+      @user_visit.places_interest_id= params[:id]
+      @user_visit.dateVisit = Date.today
+      @user_visit.ratig = params[:post].first
+      id=@user_visit.user_id
+      @user_visit.save
+      redirect_to places_interests_path
 
-    respond_to do |format|
-      if @user_visit.save
-        format.html { redirect_to @user_visit, notice: 'User visit was successfully created.' }
-        format.json { render json: @user_visit, status: :created, location: @user_visit }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user_visit.errors, status: :unprocessable_entity }
-      end
     end
+
   end
 
   # PUT /user_visits/1

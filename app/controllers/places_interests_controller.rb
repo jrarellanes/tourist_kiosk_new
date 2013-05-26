@@ -8,8 +8,7 @@ class PlacesInterestsController < ApplicationController
 
 
   def places_rh
-    @places_rh = PlacesInterest.all
-
+    @places_rh = PlacesInterest.where('clasification_id == ? AND confirm == ?', params[:id], true)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @places_interests }
@@ -102,15 +101,9 @@ class PlacesInterestsController < ApplicationController
   end
   
   def register
-      @places_interest = PlacesInterest.find(params[:id])
-      if current_user
-        @user = current_user
-        @user_visit = UserVisit.new
-        @user_visit.user_id = @user.id
-        @user_visit.places_interest_id= @places_interest.id  
-        @user_visit.dateVisit = Date.today 
-        @user_visit.save
-      end     
+      @place = PlacesInterest.find(params[:id]).id
+      @user = current_user
+
   end
   
   def recommended_places
@@ -126,6 +119,10 @@ class PlacesInterestsController < ApplicationController
    @confirm.confirm = true
    @confirm.save
     redirect_to "/places_interests"
+  end
+
+  def history
+    @user = current_user
   end
 
 end
