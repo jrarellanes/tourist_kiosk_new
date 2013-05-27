@@ -1,6 +1,4 @@
-<center>  <h3>Sitios de Interes</h3></center>
-
-<%= select("clasification_id", Clasification.all.collect {|p| [p.id] }, {:prompt => 'Selecciona una Categoria'}) %>
+<center>  <h3><%= Clasification.find(params[:id]).name %></h3></center>
 
 <% @places_rh.each do |places_interest| %>
 

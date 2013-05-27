@@ -11,7 +11,7 @@
       <image height = "200" width = "200" align = "left" hspace = 30 src='<%=places_interest.urlImage%>'> </image>
 
       <div align = "justify"> <font size ="3"><%=places_interest.description %></div>
-
+      </br></br>
       <%= link_to "Editar",
                   edit_places_interest_path(places_interest), :class => 'btn btn-primary' %>
       <%= link_to "Eliminar",
@@ -19,9 +19,10 @@
                   :method => :delete,
                   :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                   :class => 'btn btn-mini btn-danger' %>
-
+          </br></br>
       <%= form_tag( "/confirm_place/#{places_interest.id}",:method => "get") do%>
           <%= submit_tag("Publicar Evento", :class => 'btn btn-primary')%>
+          </div>
       <%end%>
 <%end%>
     <%else%>

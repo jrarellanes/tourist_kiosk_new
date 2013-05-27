@@ -4,23 +4,21 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dt><strong>Nombre</strong></dt>
   <dd><%= @places_interest.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dt><strong>Ubicación:</strong></dt>
   <dd><%= @places_interest.address %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:horary) %>:</strong></dt>
+  <dt><strong>Horario:</strong></dt>
   <dd><%= @places_interest.horary %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
+  <dt><strong>Description:</strong></dt>
   <dd align = "justify">  <%= @places_interest.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:latitude) %>:</strong></dt>
+  <dt><strong>Latitud:</strong></dt>
   <dd><%= @places_interest.latitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:longitude) %>:</strong></dt>
+  <dt><strong>Longitude:</strong></dt>
   <dd><%= @places_interest.longitude %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:popularity) %>:</strong></dt>
-  <dd><%= @places_interest.popularity %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:clasification_id) %>:</strong></dt>
+  <dt><strong>Clasification:</strong></dt>
   <dd><%= @places_interest.clasification.name%></dd>
-  <dd><strong><%= model_class.human_attribute_name(:urlImage) %>:</strong></dd>
+  <dd><strong>lImagen:</strong></dd>
   <dd><img src="<%=@places_interest.urlImage %>"/></dd>
   <dd><strong>Mapa</strong></dd>
   <dd><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@places_interest.latitude}%2C#{@places_interest.longitude}" %></dd>

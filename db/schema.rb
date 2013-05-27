@@ -42,6 +42,14 @@ ActiveRecord::Schema.define(:version => 20130511151354) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "places_interest_id"
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.integer  "attach_file_size"
+    t.datetime "attach_updated_at"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
   end
 
   create_table "places_interests", :force => true do |t|
@@ -90,14 +98,7 @@ ActiveRecord::Schema.define(:version => 20130511151354) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.string   "role"
-    t.string   "attach_file_name"
-    t.string   "attach_content_type"
-    t.integer  "attach_file_size"
-    t.datetime "attach_updated_at"
-    t.string   "pic_file_name"
-    t.string   "pic_content_type"
-    t.integer  "pic_file_size"
-    t.datetime "pic_updated_at"
+
   end
 
 end
