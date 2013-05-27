@@ -4,12 +4,10 @@
 
 <% @places_rh.each do |places_interest| %>
 
-    <div align id="left" class="page-header">
+    <span id="left" class="page-header" align="left" >
       <h3 align ="left"><%= link_to places_interest.name,places_interest_path(places_interest) %></h3>
-
-      <image align= "left"  height = "200" width = "200"  hspace = 30 src='<%=places_interest.urlImage%>'> </image>
-
+      <image align= "left"  height = "200" width = "200"  hspace = 30 src='<%=places_interest.urlImage%>'></image>
       <div align = "justify"> <font size ="3"><%=places_interest.description %></div>
-    </div>
+    </span>
 
 <%end%>
